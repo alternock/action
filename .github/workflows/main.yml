@@ -19,13 +19,14 @@
        - name: Get Your Code
          uses: actions/checkout@v2
           
-       - name: Say Hello
-         run: |
-            if ["$GITHUB_REF" = "refs/head/develop"]; then
-               echo "say hello develop ⚡"
-            elfi ["GITHUB_REF" = "refs/head/main"]; then
-               echo "say hello main ⚡"
-            fi   
+       - name: Say Hello Develop
+         if: ${{ github.ref == 'refs/heads/develop' }}
+         run: echo "Hello, develop!"
+         
+       - name: Say Hello Main
+         if: ${{ github.ref == 'refs/heads/develop' }}
+         run: echo "Hello, main!"
+         
            
   detect-pr:
       runs-on: ubuntu-latest
