@@ -5,9 +5,14 @@
      branches:
        - develop
        - main
+
+   pull_request:
+     branches:
+       - main
+
        
  jobs:
-   build:
+  detect-branch:
      runs-on: ubuntu-latest
 
      steps:
@@ -16,8 +21,25 @@
           
        - name: Say Hello
          run: |
-          if: ["$GITHUB_REF" == "refs/head/develop"]; then
+            if ["$GITHUB_REF" == "refs/head/develop"]; then
                echo "say hello develop"
-          elfi:["GITHUB_REF" == "refs/head/main"]; then
+            elfi ["GITHUB_REF" == "refs/head/main"]; then
                echo "say hello main"
             fi   
+           
+  detect-pr:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Get your code
+          uses: actions/checkout@v2
+
+        - name: PR
+          if: github.event_name == 'pull_request'
+          run: echo "hello pull request"  
+
+        
+      
+    
+   
+            
