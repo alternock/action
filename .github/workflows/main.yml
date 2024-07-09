@@ -22,9 +22,9 @@
        - name: Say Hello
          run: |
             if ["$GITHUB_REF" = "refs/head/develop"]; then
-               echo "say hello develop"
+               echo "say hello develop ⚡"
             elfi ["GITHUB_REF" = "refs/head/main"]; then
-               echo "say hello main"
+               echo "say hello main ⚡"
             fi   
            
   detect-pr:
