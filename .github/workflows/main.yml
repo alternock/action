@@ -1,7 +1,9 @@
 yaml
 name: Hello World
 
-on: [push]
+on:
+ push:
+   branches:[main]
 
 jobs:
 
