@@ -24,7 +24,7 @@
          run: echo "Hello, develop!"
          
        - name: Say Hello Main
-         if: ${{ github.ref == 'refs/heads/develop' }}
+         if: ${{ github.ref == 'refs/heads/main' }}
          run: echo "Hello, main!"
          
            
